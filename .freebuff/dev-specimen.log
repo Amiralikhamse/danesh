@@ -1,0 +1,103 @@
+
+> danesh@0.1.0 dev
+> next dev --webpack
+
+▲ Next.js 16.3.8 (webpack)
+- Local:         http://localhost:57723
+- Network:       http://172.18.0.1:57723
+✓ Ready in 3.2s
+⚠ Warning: Next.js ignored package-lock.json in C:\Users\Amir because it would include your home directory (C:\Users\Amir).
+ To use this directory, set `outputFileTracingRoot` in your Next.js config.
+
+✓ Running next.config.ts took 133ms
+
+○ Compiling /[locale]/specimen ...
+ GET /en/specimen 200 in 17.0s (next.js: 11.9s, proxy.ts: 1178ms, generate-params: 2.8s, application-code: 1127ms)
+ GET /en/specimen 200 in 331ms (next.js: 29ms, proxy.ts: 39ms, generate-params: 25ms, application-code: 239ms)
+ GET /en/specimen 200 in 313ms (next.js: 17ms, proxy.ts: 28ms, generate-params: 19ms, application-code: 249ms)
+ GET /en/specimen 200 in 320ms (next.js: 23ms, proxy.ts: 21ms, generate-params: 27ms, application-code: 248ms)
+ GET /en/specimen 200 in 620ms (next.js: 30ms, proxy.ts: 18ms, generate-params: 0.1ms, application-code: 573ms)
+○ Compiling /[locale] ...
+○ Compiling /[locale]/colophon ...
+ GET /en 200 in 49s (next.js: 38.9s, proxy.ts: 129ms, generate-params: 8.4s, application-code: 1141ms)
+ GET /en/colophon 200 in 12.3s (next.js: 9.4s, proxy.ts: 382ms, generate-params: 1983ms, application-code: 521ms)
+ GET /en/domains 200 in 12.3s (next.js: 9.4s, proxy.ts: 382ms, generate-params: 2.2s, application-code: 278ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /en 200 in 1558ms (next.js: 46ms, proxy.ts: 45ms, generate-params: 25ms, application-code: 1441ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+ GET /en 200 in 3.0s (next.js: 49ms, proxy.ts: 22ms, generate-params: 80ms, application-code: 2.8s)
+ GET /en 200 in 841ms (next.js: 27ms, proxy.ts: 18ms, generate-params: 19ms, application-code: 778ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+ GET /fa 200 in 1655ms (next.js: 23ms, proxy.ts: 18ms, generate-params: 0.1ms, application-code: 1614ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+ GET /fa 200 in 16.0s (next.js: 945ms, proxy.ts: 74ms, generate-params: 34ms, application-code: 14.9s)
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+○ Compiling /[locale]/[slug] ...
+ GET /fa 200 in 19.8s (next.js: 3.7s, proxy.ts: 721ms, generate-params: 306ms, application-code: 15.1s)
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+ GET /en/specimen 200 in 800ms (next.js: 55ms, proxy.ts: 31ms, generate-params: 21ms, application-code: 692ms)
+ GET /en/specimen 200 in 239ms (next.js: 17ms, proxy.ts: 15ms, generate-params: 15ms, application-code: 191ms)
+ GET /en/specimen 200 in 270ms (next.js: 15ms, proxy.ts: 13ms, generate-params: 12ms, application-code: 230ms)
+ GET /en/specimen 200 in 832ms (next.js: 38ms, proxy.ts: 31ms, generate-params: 205ms, application-code: 558ms)
+ GET /en 200 in 3.1s (next.js: 360ms, proxy.ts: 59ms, generate-params: 41ms, application-code: 2.7s)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+ GET /en 200 in 318ms (next.js: 20ms, proxy.ts: 16ms, generate-params: 0.1ms, application-code: 282ms)
+ GET /en 200 in 372ms (next.js: 19ms, proxy.ts: 17ms, generate-params: 16ms, application-code: 320ms)
+ GET /en 200 in 253ms (next.js: 20ms, proxy.ts: 28ms, generate-params: 0.0ms, application-code: 205ms)
+○ Compiling /[locale]/domains ...
+ GET /en/domains 200 in 5.7s (next.js: 4.2s, proxy.ts: 15ms, generate-params: 16ms, application-code: 1481ms)
+ GET /en/domains 200 in 1085ms (next.js: 65ms, proxy.ts: 70ms, generate-params: 0.1ms, application-code: 951ms)
+ GET /en/colophon 200 in 155ms (next.js: 44ms, proxy.ts: 11ms, generate-params: 11ms, application-code: 89ms)
+ GET /en 200 in 335ms (next.js: 34ms, proxy.ts: 11ms, generate-params: 15ms, application-code: 275ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 51.12917737452247 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 114.49243308821426 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property x set to 0 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property y set to 5.7472 Missing plugin? gsap.registerPlugin()
+[browser] Invalid property z set to 0 Missing plugin? gsap.registerPlugin()
+[?25h

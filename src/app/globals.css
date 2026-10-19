@@ -1,0 +1,566 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Atlas Cœlestis — design tokens                                      */
+/* Ink ground, bone paper, brass as the single voice of emphasis.      */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Ground — layered midnight ink */
+  --color-ink-900: #05080f;
+  --color-ink-800: #080d18;
+  --color-ink-700: #0c1424;
+  --color-ink-600: #131c30;
+  --color-ink-500: #1b2740;
+
+  /* Paper — warm bone, never pure white */
+  --color-bone: #ede7d9;
+  --color-bone-dim: #a9a395;
+  --color-bone-faint: #6b6a62;
+
+  /* Semantics */
+  --color-brass: #d9a441;
+  --color-brass-bright: #f0d08a;
+  --color-verdigris: #5fc4ad;
+  --color-alert: #e07a8a;
+  --color-azure: #769adb;
+
+  /* NI1 AI brand palette — primary, secondary, accent, light, dark, text, muted */
+  --color-ni1-primary: #0a2540;
+  --color-ni1-secondary: #00d4ff;
+  --color-ni1-accent: #ff5a1f;
+  --color-ni1-light: #f6f9fc;
+  --color-ni1-dark: #001524;
+  --color-ni1-text: #1a1f36;
+  --color-ni1-muted: #8792a2;
+
+  /* Domain accents — must mirror ACCENT_RGB in src/lib/layout.ts */
+  --color-accent-brass: #d9a441;
+  --color-accent-amber: #ecba5a;
+  --color-accent-copper: #e08a5a;
+  --color-accent-rose: #e07a8a;
+  --color-accent-magenta: #c47aad;
+  --color-accent-violet: #9885d4;
+  --color-accent-azure: #769adb;
+  --color-accent-cyan: #65bad3;
+  --color-accent-verdigris: #5fc4ad;
+  --color-accent-jade: #8bc882;
+
+  /* Geometry — liquid glass: every surface is rounded and soft. */
+  --radius-plate: 2px;
+  --radius-liquid: 20px;
+  --radius-liquid-lg: 24px;
+
+  /* Motion */
+  --ease-plate: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+  --font-fa: var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-bone-faint) 22%, transparent);
+  }
+
+  html {
+    background: var(--color-ink-900);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        130% 90% at 10% -12%,
+        color-mix(in oklab, var(--color-brass) 10%, transparent) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        115% 85% at 90% 5%,
+        color-mix(in oklab, var(--color-azure) 14%, transparent) 0%,
+        transparent 58%
+      ),
+      radial-gradient(
+        95% 70% at 78% 58%,
+        color-mix(in oklab, var(--color-accent-magenta) 7%, transparent) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        130% 95% at 50% 118%,
+        color-mix(in oklab, var(--color-verdigris) 9%, transparent) 0%,
+        transparent 62%
+      ),
+      var(--color-ink-900);
+    background-attachment: fixed;
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    overflow-x: hidden;
+  }
+
+  /* Persian takes Vazirmatn everywhere, including display sizes. */
+  [dir="rtl"] body,
+  [dir="rtl"] {
+    font-family: var(--font-fa);
+  }
+
+  [dir="rtl"] .font-display {
+    font-family: var(--font-fa);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-brass) 32%, transparent);
+    color: var(--color-bone);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-brass);
+    outline-offset: 3px;
+  }
+
+  /* Thin, engraved scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--color-bone-faint) 45%, transparent)
+      transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-bone-faint) 38%, transparent);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--color-brass) 55%, transparent);
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Engraved primitives                                                 */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  /* The engraved "plate" voice: small mono, wide tracking, uppercase. */
+  .plate-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-bone-dim);
+  }
+
+  [dir="rtl"] .plate-label {
+    letter-spacing: 0.1em;
+  }
+
+  /* A single hairline rule. */
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: color-mix(in oklab, var(--color-bone-faint) 26%, transparent);
+  }
+
+  /* Two hairlines with a gap — the section-header device. */
+  .double-rule {
+    position: relative;
+    height: 7px;
+    width: 100%;
+    border-top: 1px solid
+      color-mix(in oklab, var(--color-brass) 45%, transparent);
+    border-bottom: 1px solid
+      color-mix(in oklab, var(--color-bone-faint) 22%, transparent);
+  }
+
+  /* Slightly lifted ink panel — the "paper plate", poured as glass. */
+  .paper-panel {
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in oklab, var(--color-bone) 6%, transparent) 0%,
+        color-mix(in oklab, var(--color-ink-700) 45%, transparent) 100%
+      );
+    border: 1px solid
+      color-mix(in oklab, var(--color-bone-faint) 32%, transparent);
+    border-radius: var(--radius-liquid);
+    backdrop-filter: blur(26px) saturate(1.6);
+    -webkit-backdrop-filter: blur(26px) saturate(1.6);
+    box-shadow:
+      0 28px 64px -22px color-mix(in oklab, var(--color-ink-900) 85%, transparent),
+      inset 0 1.5px 0 color-mix(in oklab, var(--color-bone) 38%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, var(--color-azure) 22%, transparent);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .paper-panel {
+      background:
+        linear-gradient(
+          165deg,
+          color-mix(in oklab, var(--color-ink-700) 96%, var(--color-bone)) 0%,
+          var(--color-ink-800) 100%
+        );
+    }
+  }
+
+  /* Very fine concentric engraving, used behind the constellation. */
+  .engraved-rings {
+    background-image: repeating-radial-gradient(
+      circle at 50% 46%,
+      color-mix(in oklab, var(--color-bone-faint) 12%, transparent) 0 1px,
+      transparent 1px 46px
+    );
+    mask-image: radial-gradient(circle at 50% 46%, #000 12%, transparent 68%);
+  }
+
+  /* Fine ruled paper, for the printed index. */
+  .ruled {
+    background-image: repeating-linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-bone-faint) 8%, transparent) 0 1px,
+      transparent 1px 2.6rem
+    );
+  }
+
+  /* ---------------------------------------------------------------- */
+  /* Liquid glass primitives                                          */
+  /*                                                                  */
+  /* A thin membrane of glass over the ink ground: a translucent fill, */
+  /* heavy saturating blur, a specular hairline along the upper edge,  */
+  /* a caustic tint pooling at the lower edge, and a soft cast shadow. */
+  /* ---------------------------------------------------------------- */
+
+  /* Base membrane — bars, rails, drawers, panels. */
+  .glass {
+    position: relative;
+    isolation: isolate;
+    border-radius: var(--radius-liquid);
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in oklab, var(--color-bone) 7%, transparent) 0%,
+        color-mix(in oklab, var(--color-azure) 5%, transparent) 34%,
+        color-mix(in oklab, var(--color-ink-600) 22%, transparent) 68%,
+        color-mix(in oklab, var(--color-ink-800) 32%, transparent) 100%
+      );
+    backdrop-filter: blur(30px) saturate(1.8) brightness(1.1);
+    -webkit-backdrop-filter: blur(30px) saturate(1.8) brightness(1.1);
+    border: 1px solid
+      color-mix(in oklab, var(--color-bone) 12%, transparent);
+    box-shadow:
+      /* Cast shadow — the pane floats above the scene. */
+      0 30px 70px -22px color-mix(in oklab, var(--color-ink-900) 88%, transparent),
+      0 8px 26px -12px color-mix(in oklab, var(--color-ink-900) 72%, transparent),
+      /* Lower caustics — cool light refracting through the pane. */
+      inset 0 -1.5px 0
+        color-mix(in oklab, var(--color-azure) 34%, transparent),
+      /* Upper specular — a bright hairline, the strongest glass tell. */
+      inset 0 1.5px 0
+        color-mix(in oklab, var(--color-bone) 52%, transparent),
+      /* Side rim lights */
+      inset 1.5px 0 0.5px color-mix(in oklab, var(--color-bone) 14%, transparent),
+      inset -1.5px 0 0.5px
+        color-mix(in oklab, var(--color-bone) 14%, transparent),
+      /* Ambient refill so the centre never reads dead */
+      inset 0 0 26px -14px
+        color-mix(in oklab, var(--color-azure) 45%, transparent);
+  }
+
+  /* Non-canvas browsers still get a convincing, more opaque pane. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background:
+        linear-gradient(
+          165deg,
+          color-mix(in oklab, var(--color-ink-600) 94%, var(--color-bone)) 0%,
+          var(--color-ink-700) 100%
+        );
+    }
+  }
+
+  /* Internal sheen blobs — the pane is never perfectly flat. */
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        52% 38% at 14% 0%,
+        color-mix(in oklab, var(--color-bone) 9%, transparent) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        46% 48% at 90% 105%,
+        color-mix(in oklab, var(--color-azure) 12%, transparent) 0%,
+        transparent 100%
+      );
+  }
+
+  /* Framed variant — a floating pane with breathing room and meltier radii. */
+  .glass-card {
+    border-radius: var(--radius-liquid);
+    transition:
+      box-shadow 0.5s var(--ease-plate),
+      border-color 0.5s var(--ease-plate),
+      transform 0.5s var(--ease-plate);
+  }
+
+  .glass-card:hover {
+    border-color: color-mix(in oklab, var(--color-bone) 22%, transparent);
+    box-shadow:
+      0 36px 80px -22px color-mix(in oklab, var(--color-ink-900) 90%, transparent),
+      0 0 50px -20px
+        color-mix(in oklab, var(--color-brass) 38%, transparent),
+      inset 0 -1.5px 0
+        color-mix(in oklab, var(--color-azure) 45%, transparent),
+      inset 0 1.5px 0
+        color-mix(in oklab, var(--color-bone) 62%, transparent);
+  }
+
+  /* Pill / chip controls — the liquid-glass button voice. */
+  .glass-pill {
+    position: relative;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-bone) 8%, transparent),
+      color-mix(in oklab, var(--color-ink-600) 22%, transparent)
+    );
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    border: 1px solid
+      color-mix(in oklab, var(--color-bone) 14%, transparent);
+    box-shadow:
+      0 10px 24px -12px color-mix(in oklab, var(--color-ink-900) 82%, transparent),
+      inset 0 1px 0 color-mix(in oklab, var(--color-bone) 45%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, var(--color-azure) 22%, transparent);
+  }
+
+  .glass-pill:hover {
+    border-color: color-mix(in oklab, var(--color-brass) 45%, transparent);
+    box-shadow:
+      0 10px 26px -12px color-mix(in oklab, var(--color-ink-900) 82%, transparent),
+      inset 0 1px 0 color-mix(in oklab, var(--color-bone) 55%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, var(--color-azure) 30%, transparent),
+      0 0 24px -8px color-mix(in oklab, var(--color-brass) 45%, transparent);
+  }
+
+  /* A slow specular sweep across a pane on hover — the "liquid" in glass. */
+  .glass-sheen {
+    overflow: hidden;
+  }
+
+  .glass-sheen::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+      105deg,
+      transparent 42%,
+      color-mix(in oklab, var(--color-bone) 12%, transparent) 50%,
+      transparent 58%
+    );
+    transform: translateX(-120%);
+    transition: transform 1.4s var(--ease-plate);
+  }
+
+  .glass-sheen:hover::after {
+    transform: translateX(120%);
+  }
+
+  /* Legal / input fields inside glass — barely-there engraved wells. */
+  .glass-well {
+    border-radius: calc(var(--radius-liquid) - 6px);
+    background: color-mix(in oklab, var(--color-ink-900) 40%, transparent);
+    border: 1px solid
+      color-mix(in oklab, var(--color-bone) 10%, transparent);
+    box-shadow:
+      inset 0 2px 6px color-mix(in oklab, var(--color-ink-900) 55%, transparent),
+      inset 0 1px 0 rgba(0, 0, 0, 0.25),
+      inset 0 -1px 0 color-mix(in oklab, var(--color-azure) 14%, transparent);
+  }
+}
+
+/* Reduced motion stills the sheen sweep too. */
+@media (prefers-reduced-motion: reduce) {
+  .glass-sheen::after {
+    transition: none;
+    opacity: 0;
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-pill {
+    background: color-mix(in oklab, var(--color-ink-600) 90%, var(--color-bone));
+  }
+}
+
+
+/* Custom reticle replaces the native cursor over the constellation only. */
+.atlas-canvas,
+.atlas-canvas * {
+  cursor: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Film grain                                                          */
+/* ------------------------------------------------------------------ */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette, drawn above the scene but below the grain. */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 78% 68% at 50% 48%,
+    transparent 42%,
+    color-mix(in oklab, var(--color-ink-900) 72%, transparent) 100%
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Display type                                                        */
+/* ------------------------------------------------------------------ */
+
+.font-display {
+  font-variation-settings: "SOFT" 14, "WONK" 0, "opsz" 120;
+  letter-spacing: -0.02em;
+  line-height: 0.94;
+}
+
+/* The hero's more theatrical setting — high optical size, some WONK. */
+.font-display-xl {
+  font-variation-settings: "SOFT" 28, "WONK" 1, "opsz" 144;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+}
+
+[dir="rtl"] .font-display,
+[dir="rtl"] .font-display-xl {
+  font-variation-settings: normal;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+/* Prose measure */
+.prose-atlas {
+  max-width: 68ch;
+  line-height: 1.72;
+  color: color-mix(in oklab, var(--color-bone) 82%, transparent);
+}
+[dir="rtl"] .prose-atlas {
+  line-height: 2;
+}
+
+/* ------------------------------------------------------------------ */
+/* Keyframes                                                           */
+/* ------------------------------------------------------------------ */
+
+@keyframes danesh-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes danesh-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes danesh-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes danesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.animate-marquee {
+  animation: danesh-marquee 64s linear infinite;
+}
+.animate-drift {
+  animation: danesh-drift 34s ease-in-out infinite;
+}
+.animate-pulse-soft {
+  animation: danesh-pulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-drift,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

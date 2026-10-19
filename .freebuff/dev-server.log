@@ -1,0 +1,22 @@
+
+> danesh@0.1.0 dev
+> next dev --webpack
+
+▲ Next.js 16.3.8 (webpack)
+- Local:         http://localhost:57909
+- Network:       http://172.18.0.1:57909
+✓ Ready in 1634ms
+⚠ Warning: Next.js ignored package-lock.json in C:\Users\Amir because it would include your home directory (C:\Users\Amir).
+ To use this directory, set `outputFileTracingRoot` in your Next.js config.
+
+✓ Running next.config.ts took 126ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:57723
+- PID:          9452
+- Dir:          C:\Users\Amir\Desktop\Danesh
+- Log:          .next\dev\logs\next-development.log
+
+You can access the existing server at http://localhost:57723,
+or run taskkill /PID 9452 /F to stop it and start a new one.
+[?25h
